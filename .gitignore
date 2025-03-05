@@ -1,0 +1,30 @@
+# User-specific files
+.vs/
+.vscode/
+.idea/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]istros/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+*.pdb
+*.ilk
+*.log
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# User-specific files
+appsettings.json
