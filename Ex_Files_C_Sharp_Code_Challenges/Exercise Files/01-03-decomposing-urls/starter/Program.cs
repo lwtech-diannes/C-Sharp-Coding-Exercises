@@ -21,9 +21,22 @@ namespace decomposingurls
         }
 
         // MARK: Calculation
+
+        /* Requirements: 
+         * - Remove the 'www.' from the beginning
+         * - Replace any '-' with a blank space
+         * - Split the URL at each '/' character
+         */
+
         public static string[] BreakdownURL(string urlString)
         {
-            return new string[0];
+            string removeWWW = urlString.Remove(0, 4);
+
+            string replaceDashes = removeWWW.Replace("-", " ");
+
+            string[] components = replaceDashes.Split('/');
+
+            return components;
         }
     }
 }
