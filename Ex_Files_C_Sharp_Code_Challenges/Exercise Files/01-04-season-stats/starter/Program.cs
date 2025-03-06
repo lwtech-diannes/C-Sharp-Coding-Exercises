@@ -26,7 +26,30 @@ namespace seasonstats
         // MARK: Write your solution here
         public static void PrintStats(List<int> scores)
         {
-            
+            int avg = 0;
+            int highest = 0;
+            int lowest = 0;
+            int total = 0;
+            int numScores = scores.Count;
+
+            foreach (int i in scores) {
+                if (i > highest)
+                {
+                    highest = i;
+                }
+                if (highest > i)
+                {
+                    lowest = i;
+                }
+                total += i;
+            }
+
+            avg = total / numScores;
+
+            Console.WriteLine($"Lowest scoring game --> { lowest }");
+            Console.WriteLine($"Highest scoring game --> { highest }");
+            Console.WriteLine($"Total season points --> { total }");
+            Console.WriteLine($"Average points per game --> { avg }");
         }
     }
 }
