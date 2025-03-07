@@ -14,5 +14,17 @@ namespace movienight
             this.reviewScore = score;
             this.rating = rating;
         }
+
+        public override string ToString() { 
+            
+            string description = $"Title: { title } \nRating: { rating } \nRT Review Score: { reviewScore }";
+
+            // Could make a bool constant instead
+            if (reviewScore > 75) { 
+                
+                description += " <-- Certified Fresh!";
+            }
+            return description;
+        }
     }
 }
