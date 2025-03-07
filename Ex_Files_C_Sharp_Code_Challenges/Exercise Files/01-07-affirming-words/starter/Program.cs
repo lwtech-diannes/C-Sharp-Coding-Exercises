@@ -30,14 +30,37 @@ namespace affirmingwords
         }
 
         // MARK: Write your solution here...
+
+        private static Timer timer;
+
         public static void StartTimer(int interval)
         {
+            if (timer == null) {
 
+                timer = new Timer();
+                timer.Interval = interval * 1000;   // Set interval to seconds
+                timer.AutoReset = true;
+                timer.Enabled = true;
+
+                int elapsedTime = 0;
+                timer.Elapsed += (sender, e) =>
+                {
+                    elapsedTime += interval; // Convert milliseconds to seconds
+                    Console.WriteLine($"{elapsedTime} seconds: {encouragements[random.Next(encouragements.Count)]}");
+                };
+
+            }
         }
 
-        // 6
         public static void StopTimer()
         {
+            if (timer != null)
+            {
+                timer.Stop();
+                timer.Dispose();
+
+                Console.WriteLine("Timer stopped.");
+            }
 
         }
     }
