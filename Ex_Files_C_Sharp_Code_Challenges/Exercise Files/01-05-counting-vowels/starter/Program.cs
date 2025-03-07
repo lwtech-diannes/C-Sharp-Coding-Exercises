@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace countingvowels
 {
@@ -29,7 +30,16 @@ namespace countingvowels
         // MARK: Write your solution here
         public static void VowelCount(string text)
         {
+            int score = 0;
 
+            foreach (char c in text)
+            {
+                if (vowelScores.ContainsKey(c))
+                {
+                    score += vowelScores[c];
+                }
+            }
+            Console.WriteLine($"Vowel Score: {score}");
         }
     }
 }
