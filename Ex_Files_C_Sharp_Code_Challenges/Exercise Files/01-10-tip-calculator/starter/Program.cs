@@ -18,7 +18,9 @@ namespace tipcalculator
         // MARK: Write your solution here
         public static void CalculateTip(int cost)
         {
+            var tips = Tuple.Create(0.10, 0.175, 0.25);
 
+            Console.WriteLine($"Tip options: \n\t10% -> {(cost * tips.Item1):C} \n\t17.5% -> {(cost * tips.Item2):C} \n\t25 % -> {(cost* tips.Item3):C}");
         }
     }
 }
