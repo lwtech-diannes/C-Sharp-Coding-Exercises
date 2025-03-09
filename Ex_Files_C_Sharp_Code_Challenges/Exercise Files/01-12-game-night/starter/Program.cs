@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace gamenight
 {
@@ -31,7 +32,28 @@ namespace gamenight
         // MARK: Write your solution here...
         public static void PrintStats(int targetImprovement)
         {
+            var gameQuery =
 
+                from player in players
+               
+                let improvement = player.currentScore - player.lastScore
+                
+                where improvement > targetImprovement && improvement > 0
+                
+                group player by player.lastname[0] into playerGroup
+              
+                orderby playerGroup.Key
+              
+                select playerGroup;
+
+            foreach (var playerGroup in gameQuery)
+            {
+                Console.WriteLine("\n" + playerGroup.Key);
+                foreach (var player in playerGroup)
+                {
+                    Console.WriteLine($"{player.firstname} {player.lastname} improved by more than {targetImprovement}!");
+                }
+            }
         }
     }
 }
